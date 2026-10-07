@@ -1,0 +1,9 @@
+"./syscfg/ti_msp_dl_config.o"
+"./startup_mspm0l222x_gcc.o"
+"./mspm0l2228_aes_trigger.o"
+-Wl,-T"syscfg/device_linker.lds"
+-l:device.lds.genlibs
+-lgcc
+-lc
+-lm
+-lnosys

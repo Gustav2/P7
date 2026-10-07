@@ -1,0 +1,505 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+                              ./mspm0l2228_aes_trigger.o (DL_AESADV_setKey)
+/home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+                              ./syscfg/ti_msp_dl_config.o (DL_Common_delayCycles)
+/home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+                              ./syscfg/ti_msp_dl_config.o (DL_UART_init)
+/home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                              /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o) (__aeabi_uidiv)
+/home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                              /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+/home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+                              ./startup_mspm0l222x_gcc.o (__libc_init_array)
+/home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+                              /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o) (memset)
+
+Discarded input sections
+
+ .text.DL_AESADV_loadInitializationVector.part.0
+                0x0000000000000000       0x24 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_setKeyAligned
+                0x0000000000000000       0x5c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_setGCMHashKey
+                0x0000000000000000       0x30 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_setGCMHashKeyAligned
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_setSecondKey
+                0x0000000000000000       0x30 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_setSecondKeyAligned
+                0x0000000000000000        0x8 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_setThirdKey
+                0x0000000000000000       0x30 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_setThirdKeyAligned
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_loadIntermediateTAG
+                0x0000000000000000       0x30 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_loadIntermediateTAGAligned
+                0x0000000000000000        0x8 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_loadInitializationVector
+                0x0000000000000000       0x14 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_loadInitializationVectorAligned
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_readInitializationVector
+                0x0000000000000000       0x2c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_readInitializationVectorAligned
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_loadCCMNonceAndCounter
+                0x0000000000000000       0x74 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_loadInputDataAligned
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_readOutputDataAligned
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_readTAG
+                0x0000000000000000       0x2c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_readTAGAligned
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initCBC
+                0x0000000000000000       0x4c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initCFB
+                0x0000000000000000       0x54 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initOFB
+                0x0000000000000000       0x54 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initCTR
+                0x0000000000000000       0x50 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initICM
+                0x0000000000000000       0x50 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initCMAC
+                0x0000000000000000       0xa8 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initCBCMAC
+                0x0000000000000000       0x9c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initGCM
+                0x0000000000000000       0x88 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_AESADV_initCCM
+                0x0000000000000000       0x5c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text.DL_UART_getClockConfig
+                0x0000000000000000       0x14 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_configBaudRate
+                0x0000000000000000       0xb0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_configIrDAMode
+                0x0000000000000000       0x40 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_setIrDAPulseLength
+                0x0000000000000000       0x34 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_receiveDataCheck
+                0x0000000000000000       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_transmitDataCheck
+                0x0000000000000000       0x1c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_drainRXFIFO
+                0x0000000000000000       0x2c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_fillTXFIFO
+                0x0000000000000000       0x2c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_Main_saveConfiguration
+                0x0000000000000000       0x84 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_Main_restoreConfiguration
+                0x0000000000000000       0x90 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_Extend_saveConfiguration
+                0x0000000000000000       0xa8 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.DL_UART_Extend_restoreConfiguration
+                0x0000000000000000       0xc0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text.memset   0x0000000000000000       0xa8 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000000000000 0x0000000000040000 xr
+SRAM             0x0000000020200000 0x0000000000008000 xrw
+BCR_CONFIG       0x0000000041c00000 0x00000000000000ff r
+BSL_CONFIG       0x0000000041c00100 0x0000000000000080 r
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ./syscfg/ti_msp_dl_config.o
+LOAD ./startup_mspm0l222x_gcc.o
+LOAD ./mspm0l2228_aes_trigger.o
+                0x0000000000000000                _Min_Heap_Size = 0x0
+                0x0000000000000080                _Min_Stack_Size = 0x80
+                0x0000000000000000                PROVIDE (_intvecs_base_address = DEFINED (_intvecs_base_address)?_intvecs_base_address:0x0)
+
+.intvecs        0x0000000000000000       0xc0
+ *(.intvecs)
+ .intvecs       0x0000000000000000       0xc0 ./startup_mspm0l222x_gcc.o
+                0x0000000000000000                interruptVectors
+                0x0000000020200000                PROVIDE (_vtable_base_address = DEFINED (_vtable_base_address)?_vtable_base_address:0x20200000)
+
+.vtable
+ *(.vtable)
+
+.text           0x00000000000000c0      0x5a0
+ CREATE_OBJECT_SYMBOLS
+ *(.text)
+ .text          0x00000000000000c0        0x0 ./syscfg/ti_msp_dl_config.o
+ .text          0x00000000000000c0        0x0 ./startup_mspm0l222x_gcc.o
+ .text          0x00000000000000c0        0x0 ./mspm0l2228_aes_trigger.o
+ .text          0x00000000000000c0        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .text          0x00000000000000c0        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .text          0x00000000000000c0        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .text          0x00000000000000c0      0x114 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x00000000000000c0                __udivsi3
+                0x00000000000000c0                __aeabi_uidiv
+                0x00000000000001cc                __aeabi_uidivmod
+ .text          0x00000000000001d4        0x4 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x00000000000001d4                __aeabi_ldiv0
+                0x00000000000001d4                __aeabi_idiv0
+ .text          0x00000000000001d8        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+ .text          0x00000000000001d8        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+                0x00000000000001d8                . = ALIGN (0x8)
+ *(.text.*)
+ .text.SYSCFG_DL_initPower
+                0x00000000000001d8       0x50 ./syscfg/ti_msp_dl_config.o
+                0x00000000000001d8                SYSCFG_DL_initPower
+ .text.SYSCFG_DL_GPIO_init
+                0x0000000000000228       0x30 ./syscfg/ti_msp_dl_config.o
+                0x0000000000000228                SYSCFG_DL_GPIO_init
+ .text.SYSCFG_DL_SYSCTL_init
+                0x0000000000000258       0x30 ./syscfg/ti_msp_dl_config.o
+                0x0000000000000258                SYSCFG_DL_SYSCTL_init
+ .text.SYSCFG_DL_UART_1_init
+                0x0000000000000288       0x78 ./syscfg/ti_msp_dl_config.o
+                0x0000000000000288                SYSCFG_DL_UART_1_init
+ .text.SYSCFG_DL_init
+                0x0000000000000300       0x14 ./syscfg/ti_msp_dl_config.o
+                0x0000000000000300                SYSCFG_DL_init
+ .text.SYSCFG_DL_AESADV_init
+                0x0000000000000314       0x14 ./syscfg/ti_msp_dl_config.o
+                0x0000000000000314                SYSCFG_DL_AESADV_init
+ .text.Default_Handler
+                0x0000000000000328        0x4 ./startup_mspm0l222x_gcc.o
+                0x0000000000000328                TIMG8_IRQHandler
+                0x0000000000000328                I2C0_IRQHandler
+                0x0000000000000328                HardFault_Handler
+                0x0000000000000328                SysTick_Handler
+                0x0000000000000328                PendSV_Handler
+                0x0000000000000328                NMI_Handler
+                0x0000000000000328                I2C1_IRQHandler
+                0x0000000000000328                UART1_IRQHandler
+                0x0000000000000328                LFSS_IRQHandler
+                0x0000000000000328                UART0_IRQHandler
+                0x0000000000000328                ADC0_IRQHandler
+                0x0000000000000328                SPI1_IRQHandler
+                0x0000000000000328                TIMG5_IRQHandler
+                0x0000000000000328                TIMG0_IRQHandler
+                0x0000000000000328                GROUP1_IRQHandler
+                0x0000000000000328                I2C2_IRQHandler
+                0x0000000000000328                GROUP0_IRQHandler
+                0x0000000000000328                LCD_IRQHandler
+                0x0000000000000328                AESADV_IRQHandler
+                0x0000000000000328                UART2_IRQHandler
+                0x0000000000000328                UART4_IRQHandler
+                0x0000000000000328                Default_Handler
+                0x0000000000000328                SVC_Handler
+                0x0000000000000328                TIMG12_IRQHandler
+                0x0000000000000328                SPI0_IRQHandler
+                0x0000000000000328                DMA_IRQHandler
+                0x0000000000000328                TIMA0_IRQHandler
+                0x0000000000000328                UART3_IRQHandler
+                0x0000000000000328                TIMG4_IRQHandler
+ .text.Reset_Handler
+                0x000000000000032c       0x8c ./startup_mspm0l222x_gcc.o
+                0x000000000000032c                Reset_Handler
+ .text.initStub
+                0x00000000000003b8        0x4 ./startup_mspm0l222x_gcc.o
+                0x00000000000003b8                _init
+                0x00000000000003b8                initStub
+ .text.startup.main
+                0x00000000000003bc       0xb8 ./mspm0l2228_aes_trigger.o
+                0x00000000000003bc                main
+ .text.DL_AESADV_setKey
+                0x0000000000000474       0x70 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+                0x0000000000000474                DL_AESADV_setKey
+ .text.DL_AESADV_loadInputData
+                0x00000000000004e4       0x30 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+                0x00000000000004e4                DL_AESADV_loadInputData
+ .text.DL_AESADV_readOutputData
+                0x0000000000000514       0x2c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+                0x0000000000000514                DL_AESADV_readOutputData
+ .text.DL_AESADV_initECB
+                0x0000000000000540       0x34 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+                0x0000000000000540                DL_AESADV_initECB
+ .text.DL_Common_delayCycles
+                0x0000000000000574        0xc /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+                0x0000000000000574                DL_Common_delayCycles
+ .text.DL_UART_init
+                0x0000000000000580       0x48 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+                0x0000000000000580                DL_UART_init
+ .text.DL_UART_setClockConfig
+                0x00000000000005c8       0x14 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+                0x00000000000005c8                DL_UART_setClockConfig
+ .text.DL_UART_receiveDataBlocking
+                0x00000000000005dc       0x1c /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+                0x00000000000005dc                DL_UART_receiveDataBlocking
+ .text.DL_UART_transmitDataBlocking
+                0x00000000000005f8       0x24 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+                0x00000000000005f8                DL_UART_transmitDataBlocking
+ .text.__libc_init_array
+                0x000000000000061c       0x44 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+                0x000000000000061c                __libc_init_array
+                0x0000000000000660                . = ALIGN (0x8)
+ *(.ctors)
+                0x0000000000000660                . = ALIGN (0x8)
+ *(.dtors)
+                0x0000000000000660                . = ALIGN (0x8)
+ *(.init)
+                0x0000000000000660                . = ALIGN (0x8)
+ *(.fini*)
+                0x0000000000000660                . = ALIGN (0x8)
+
+.glue_7         0x0000000000000660        0x0
+ .glue_7        0x0000000000000660        0x0 linker stubs
+
+.glue_7t        0x0000000000000660        0x0
+ .glue_7t       0x0000000000000660        0x0 linker stubs
+
+.vfp11_veneer   0x0000000000000660        0x0
+ .vfp11_veneer  0x0000000000000660        0x0 linker stubs
+
+.v4_bx          0x0000000000000660        0x0
+ .v4_bx         0x0000000000000660        0x0 linker stubs
+
+.iplt           0x0000000000000660        0x0
+ .iplt          0x0000000000000660        0x0 ./syscfg/ti_msp_dl_config.o
+
+.ramfunc        0x0000000020200000        0x0 load address 0x0000000000000660
+                0x0000000000000660                __ramfunct_load__ = LOADADDR (.ramfunc)
+                0x0000000020200000                __ramfunct_start__ = .
+ *(.ramfunc)
+                0x0000000020200000                . = ALIGN (0x8)
+                0x0000000020200000                __ramfunct_end__ = .
+
+.rodata         0x0000000000000660       0x50
+ *(.rodata)
+                0x0000000000000660                . = ALIGN (0x8)
+ *(.rodata.*)
+ .rodata.gAESADV_config
+                0x0000000000000660       0x30 ./syscfg/ti_msp_dl_config.o
+ .rodata.gUART_1ClockConfig
+                0x0000000000000690        0x2 ./syscfg/ti_msp_dl_config.o
+ *fill*         0x0000000000000692        0x2 
+ .rodata.gUART_1Config
+                0x0000000000000694        0xa ./syscfg/ti_msp_dl_config.o
+ *fill*         0x000000000000069e        0x2 
+ .rodata.SECRET_KEY
+                0x00000000000006a0       0x10 ./mspm0l2228_aes_trigger.o
+                0x00000000000006b0                . = ALIGN (0x8)
+
+.rel.dyn        0x00000000000006b0        0x0
+ .rel.iplt      0x00000000000006b0        0x0 ./syscfg/ti_msp_dl_config.o
+
+.preinit_array  0x00000000000006b0        0x0
+                0x00000000000006b0                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array*)
+                0x00000000000006b0                PROVIDE (__preinit_array_end = .)
+
+.init_array     0x00000000000006b0        0x0
+                0x00000000000006b0                . = ALIGN (0x8)
+                0x00000000000006b0                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array*)
+                0x00000000000006b0                PROVIDE (__init_array_end = .)
+
+.fini_array     0x00000000000006b0        0x0
+                0x00000000000006b0                . = ALIGN (0x8)
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x00000000000006b0                . = ALIGN (0x8)
+
+.ARM.exidx      0x00000000000006b0        0x0
+                0x00000000000006b0                __exidx_start = .
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00000000000006b0                __exidx_end = .
+
+.ARM.extab      0x00000000000006b0        0x0
+                0x00000000000006b0                . = ALIGN (0x8)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x00000000000006b0                . = ALIGN (0x8)
+                0x00000000000006b0                __etext = .
+
+.data           0x0000000020200000        0x0 load address 0x00000000000006b0
+                0x00000000000006b0                __data_load__ = LOADADDR (.data)
+                0x0000000020200000                __data_start__ = .
+ *(.data)
+ .data          0x0000000020200000        0x0 ./syscfg/ti_msp_dl_config.o
+ .data          0x0000000020200000        0x0 ./startup_mspm0l222x_gcc.o
+ .data          0x0000000020200000        0x0 ./mspm0l2228_aes_trigger.o
+ .data          0x0000000020200000        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .data          0x0000000020200000        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .data          0x0000000020200000        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .data          0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .data          0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .data          0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+ .data          0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+ *(.data*)
+                0x0000000020200000                . = ALIGN (0x8)
+                0x0000000020200000                __data_end__ = .
+
+.igot.plt       0x0000000020200000        0x0 load address 0x00000000000006b0
+ .igot.plt      0x0000000020200000        0x0 ./syscfg/ti_msp_dl_config.o
+
+.bss            0x0000000020200000        0x0
+                0x0000000020200000                __bss_start__ = .
+ *(.shbss)
+ *(.bss)
+ .bss           0x0000000020200000        0x0 ./syscfg/ti_msp_dl_config.o
+ .bss           0x0000000020200000        0x0 ./startup_mspm0l222x_gcc.o
+ .bss           0x0000000020200000        0x0 ./mspm0l2228_aes_trigger.o
+ .bss           0x0000000020200000        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .bss           0x0000000020200000        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .bss           0x0000000020200000        0x0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .bss           0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .bss           0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+ .bss           0x0000000020200000        0x0 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+ *(.bss.*)
+ *(COMMON)
+                0x0000000020200000                . = ALIGN (0x8)
+                0x0000000020200000                __bss_end__ = .
+
+.noinit         0x0000000020200000        0x0
+ *(*.noinit*)
+                0x0000000020200000                . = ALIGN (0x8)
+
+.heap           0x0000000020200000        0x0
+                0x0000000020200000                __heap_start__ = .
+                0x0000000020200000                end = __heap_start__
+                0x0000000020200000                _end = end
+                0x0000000020200000                __end = end
+ *(.heap)
+                0x0000000020200000                __heap_end__ = .
+                0x0000000020200000                __HeapLimit = __heap_end__
+
+.stack          0x0000000020200000        0x0
+                0x0000000020200000                _stack = .
+ *(.stack)
+
+.BCRConfig
+ *(.BCRConfig)
+
+.BSLConfig
+ *(.BSLConfig)
+                0x0000000020208000                __StackTop = (ORIGIN (REGION_STACK) + LENGTH (REGION_STACK))
+                [!provide]                        PROVIDE (__stack = __StackTop)
+LOAD /home/gustavnybro/workspace_ccstheia/P7/Debug/syscfg/device.lds.genlibs
+LOAD /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a
+LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a
+LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a
+LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
+LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a
+START GROUP
+LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a
+LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libg.a
+LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a
+END GROUP
+OUTPUT(P7.out elf32-littlearm)
+
+.debug_info     0x0000000000000000    0x20167
+ .debug_info    0x0000000000000000     0x6baf ./syscfg/ti_msp_dl_config.o
+ .debug_info    0x0000000000006baf      0x1bc ./startup_mspm0l222x_gcc.o
+ .debug_info    0x0000000000006d6b     0x611e ./mspm0l2228_aes_trigger.o
+ .debug_info    0x000000000000ce89     0x78c6 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .debug_info    0x000000000001474f     0x54a0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .debug_info    0x0000000000019bef     0x6578 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+
+.debug_abbrev   0x0000000000000000     0x1107
+ .debug_abbrev  0x0000000000000000      0x377 ./syscfg/ti_msp_dl_config.o
+ .debug_abbrev  0x0000000000000377       0xe7 ./startup_mspm0l222x_gcc.o
+ .debug_abbrev  0x000000000000045e      0x357 ./mspm0l2228_aes_trigger.o
+ .debug_abbrev  0x00000000000007b5      0x47b /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .debug_abbrev  0x0000000000000c30      0x146 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .debug_abbrev  0x0000000000000d76      0x391 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+
+.debug_loc      0x0000000000000000     0x3325
+ .debug_loc     0x0000000000000000       0x13 ./syscfg/ti_msp_dl_config.o
+ .debug_loc     0x0000000000000013       0x13 ./startup_mspm0l222x_gcc.o
+ .debug_loc     0x0000000000000026       0x33 ./mspm0l2228_aes_trigger.o
+ .debug_loc     0x0000000000000059     0x27f5 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .debug_loc     0x000000000000284e      0xad7 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+
+.debug_aranges  0x0000000000000000      0x258
+ .debug_aranges
+                0x0000000000000000       0x48 ./syscfg/ti_msp_dl_config.o
+ .debug_aranges
+                0x0000000000000048       0x30 ./startup_mspm0l222x_gcc.o
+ .debug_aranges
+                0x0000000000000078       0x20 ./mspm0l2228_aes_trigger.o
+ .debug_aranges
+                0x0000000000000098      0x108 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .debug_aranges
+                0x00000000000001a0       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .debug_aranges
+                0x00000000000001c0       0x98 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+
+.debug_ranges   0x0000000000000000      0xbb8
+ .debug_ranges  0x0000000000000000      0x198 ./syscfg/ti_msp_dl_config.o
+ .debug_ranges  0x0000000000000198       0x20 ./startup_mspm0l222x_gcc.o
+ .debug_ranges  0x00000000000001b8       0xc0 ./mspm0l2228_aes_trigger.o
+ .debug_ranges  0x0000000000000278      0x5a0 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .debug_ranges  0x0000000000000818       0x10 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .debug_ranges  0x0000000000000828      0x390 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+
+.debug_line     0x0000000000000000     0x395a
+ .debug_line    0x0000000000000000      0x875 ./syscfg/ti_msp_dl_config.o
+ .debug_line    0x0000000000000875      0x1f8 ./startup_mspm0l222x_gcc.o
+ .debug_line    0x0000000000000a6d      0x5c3 ./mspm0l2228_aes_trigger.o
+ .debug_line    0x0000000000001030     0x162f /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .debug_line    0x000000000000265f      0x420 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .debug_line    0x0000000000002a7f      0xedb /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+
+.debug_str      0x0000000000000000     0x3dce
+ .debug_str     0x0000000000000000     0x2ef7 ./syscfg/ti_msp_dl_config.o
+                                       0x3055 (size before relaxing)
+ .debug_str     0x0000000000002ef7      0x14c ./startup_mspm0l222x_gcc.o
+                                        0x2df (size before relaxing)
+ .debug_str     0x0000000000003043      0x116 ./mspm0l2228_aes_trigger.o
+                                       0x1e4a (size before relaxing)
+ .debug_str     0x0000000000003159      0x6e8 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+                                       0x23ec (size before relaxing)
+ .debug_str     0x0000000000003841       0xd4 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+                                       0x1991 (size before relaxing)
+ .debug_str     0x0000000000003915      0x4b9 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+                                       0x2302 (size before relaxing)
+
+.comment        0x0000000000000000       0x79
+ .comment       0x0000000000000000       0x79 ./syscfg/ti_msp_dl_config.o
+                                         0x7a (size before relaxing)
+ .comment       0x0000000000000079       0x7a ./startup_mspm0l222x_gcc.o
+ .comment       0x0000000000000079       0x7a ./mspm0l2228_aes_trigger.o
+ .comment       0x0000000000000079       0x7a /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .comment       0x0000000000000079       0x7a /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .comment       0x0000000000000079       0x7a /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+
+.ARM.attributes
+                0x0000000000000000       0x2c
+ .ARM.attributes
+                0x0000000000000000       0x2b ./syscfg/ti_msp_dl_config.o
+ .ARM.attributes
+                0x000000000000002b       0x2b ./startup_mspm0l222x_gcc.o
+ .ARM.attributes
+                0x0000000000000056       0x2b ./mspm0l2228_aes_trigger.o
+ .ARM.attributes
+                0x0000000000000081       0x2b /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .ARM.attributes
+                0x00000000000000ac       0x2b /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .ARM.attributes
+                0x00000000000000d7       0x2b /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .ARM.attributes
+                0x0000000000000102       0x1e /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000000000000120       0x1e /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x000000000000013e       0x2c /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+ .ARM.attributes
+                0x000000000000016a       0x2c /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+
+.debug_frame    0x0000000000000000      0x67c
+ .debug_frame   0x0000000000000000       0x98 ./syscfg/ti_msp_dl_config.o
+ .debug_frame   0x0000000000000098       0x48 ./startup_mspm0l222x_gcc.o
+ .debug_frame   0x00000000000000e0       0x38 ./mspm0l2228_aes_trigger.o
+ .debug_frame   0x0000000000000118      0x324 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+ .debug_frame   0x000000000000043c       0x20 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .debug_frame   0x000000000000045c      0x1a4 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .debug_frame   0x0000000000000600       0x20 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000000620       0x2c /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+ .debug_frame   0x000000000000064c       0x30 /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
