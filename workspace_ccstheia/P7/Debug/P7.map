@@ -381,7 +381,7 @@ LOAD ./mspm0l2228_aes_trigger.o
  *(.BSLConfig)
                 0x0000000020208000                __StackTop = (ORIGIN (REGION_STACK) + LENGTH (REGION_STACK))
                 [!provide]                        PROVIDE (__stack = __StackTop)
-LOAD /home/gustavnybro/workspace_ccstheia/P7/Debug/syscfg/device.lds.genlibs
+LOAD /home/gustavnybro/Projects/P7/workspace_ccstheia/P7/Debug/syscfg/device.lds.genlibs
 LOAD /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a
 LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a
 LOAD /home/gustavnybro/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp/libc.a
@@ -447,18 +447,18 @@ OUTPUT(P7.out elf32-littlearm)
  .debug_line    0x000000000000265f      0x420 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
  .debug_line    0x0000000000002a7f      0xedb /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
 
-.debug_str      0x0000000000000000     0x3dce
- .debug_str     0x0000000000000000     0x2ef7 ./syscfg/ti_msp_dl_config.o
-                                       0x3055 (size before relaxing)
- .debug_str     0x0000000000002ef7      0x14c ./startup_mspm0l222x_gcc.o
-                                        0x2df (size before relaxing)
- .debug_str     0x0000000000003043      0x116 ./mspm0l2228_aes_trigger.o
-                                       0x1e4a (size before relaxing)
- .debug_str     0x0000000000003159      0x6e8 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
+.debug_str      0x0000000000000000     0x3dda
+ .debug_str     0x0000000000000000     0x2f03 ./syscfg/ti_msp_dl_config.o
+                                       0x3061 (size before relaxing)
+ .debug_str     0x0000000000002f03      0x14c ./startup_mspm0l222x_gcc.o
+                                        0x2eb (size before relaxing)
+ .debug_str     0x000000000000304f      0x116 ./mspm0l2228_aes_trigger.o
+                                       0x1e56 (size before relaxing)
+ .debug_str     0x0000000000003165      0x6e8 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_aesadv.o)
                                        0x23ec (size before relaxing)
- .debug_str     0x0000000000003841       0xd4 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
+ .debug_str     0x000000000000384d       0xd4 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_common.o)
                                        0x1991 (size before relaxing)
- .debug_str     0x0000000000003915      0x4b9 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
+ .debug_str     0x0000000000003921      0x4b9 /home/gustavnybro/ti/mspm0_sdk_2_11_00_07/source/ti/driverlib/lib/gcc/m0p/mspm0l122x_l222x/driverlib.a(dl_uart.o)
                                        0x2302 (size before relaxing)
 
 .comment        0x0000000000000000       0x79
