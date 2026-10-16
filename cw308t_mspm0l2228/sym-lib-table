@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "sca")(type "KiCad")(uri "${KIPRJMOD}/sca.kicad_sym")(options "")(descr "CW308T MSPM0L2228 project symbols"))
+)

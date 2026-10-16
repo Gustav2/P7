@@ -1,0 +1,11 @@
+Jumper map (solder a 0-ohm 0603/1206 for <=3.5mm, a wire link for longer):
+JP1: GND  (link 3.44mm)
+JP2: GND  (link 2.51mm)
+JP3: VDD_CHIP  (link 1.37mm)
+JP4: VDD_CHIP  (link 3.63mm)
+JP5: nRST  (link 1.38mm)
+JP6: nRST  (link 3.33mm)
+JP7: nRST  (link 2.32mm)
+JP8: TRIG  (link 6.01mm)
+JP9: SWDIO  (link 3.79mm)
+JP10: SWCLK  (link 1.37mm)
