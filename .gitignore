@@ -2,3 +2,7 @@ venv/
 .venv/
 .ipynb_checkpoints/
 Debug/
+# KiCad lock/backup files
+*.lck
+*-backups/
+fp-info-cache
