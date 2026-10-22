@@ -1,19 +1,16 @@
 Ref,Qty,Value,Footprint,Populate,Notes
-U1,1,MSPM0L2228SPN,LQFP-80 14x14 0.65mm,YES,"Target MCU. Reball/desolder from eCTF board OR buy new (then it is a methodology target, not the eCTF part)."
-C1,1,470nF,0603,YES,"VCORE decoupling. REQUIRED by datasheet, place hard against pin 80 / VSS."
-C2,1,100nF,0603,YES,"VDD (pin 8) decoupling, close to pin."
-C5,1,100nF,0603,YES,"VBAT (pin 7) decoupling."
-C3,1,100nF,0603,YES,"VDD2 (pin 49) decoupling."
-C4,1,4.7uF,0805,YES,"Bulk, on the SUPPLY side of the shunt (FILT_OUT). Reduce/remove to widen measurement bandwidth for SCA."
-C6,1,100nF,0603,NO (DNP),"Optional nRST cap."
-R1,1,0R,0805,NO (DNP),"Optional LOCAL shunt. Populate (e.g. 1-10 ohm) to measure right at the VDD pins; then do NOT also use the CW308/CW313 shunt."
-R2,1,10k,0805,NO (DNP),"Optional nRST pull-up; CW308 already pulls nRST up via VREF."
-J7,1,CW308_WEST_A,PinSocket 1x20 2.54mm (female),YES,"CW308 West connector."
-J9,1,CW308_SOUTH_B,PinSocket 1x20 2.54mm (female),YES,"CW308 South connector."
-J11,1,CW308_EAST_C,PinSocket 1x20 2.54mm (female),YES,"CW308 East connector (power/shunt)."
-J_MEAS,1,SMA,SMA horizontal,OPTIONAL,"Scope probe point on VDD_CHIP."
-H1-H3,3,M3,3.2mm hole,YES,"Mounting holes, CW308 standard pattern."
-J_SWD,1,Cortex-SWD,PinHeader 2x05 1.27mm,YES,"ARM 2x5 SWD debug header (XDS110/J-Link) - same debug interface as the MSP-LITO board. 1=VTREF,2=SWDIO,4=SWCLK,10=nRESET,odd=GND."
-SW1,1,RESET,SW KMR2 SMD,YES,"nRST push-button (like the LITO NRST button)."
-TP_BSL,1,BSL,TestPoint 1.5mm,OPTIONAL,"PA18 BSL-invoke test point (bootloader entry)."
-JP1-JP10,10,0R link / wire,0.6mm SMD pads (net-tie),YES,"Jumper crossings (single-sided). Solder 0603/1206 0-ohm for <=3.5mm, short wire for JP4/JP8/JP9. See JUMPERS.txt."
+U1,1,MSPM0L2228SPN,LQFP-80 14x14 0.65mm,YES,Target MCU
+C1,1,470nF,0603,YES,VCORE (pin 80) - required, hard against the pin
+C2,1,100nF,0603,YES,VDD/VSS (pin 8/9)
+C5,1,100nF,0603,YES,VBAT (pin 7)
+C3,1,100nF,0603,YES,VDD2 (pin 49)
+C4,1,4.7uF,0805,YES,Bulk (supply side of shunt)
+C6,1,100nF,0603,NO (DNP),Optional nRST cap
+R1,1,0R,0805,NO (DNP),Optional local shunt
+R2,1,10k,0805,NO (DNP),Optional nRST pull-up
+J1/J3/J4,3,PinSocket 1x20 2.54mm,female vertical (BOTTOM),YES,CW308 West/East/South sockets - mate down onto adapter
+P1/P3/P4,3,PinHeader 1x20 2.54mm,male vertical (TOP),YES,All-60 breakout headers (offset 0.1in) for cables
+J_SWD,1,Cortex 2x5 1.27mm,PinHeader 2x05,YES,SWD debug
+SW1,1,Reset,SW KMR2 SMD,YES,nRST button
+TP_BSL,1,BSL,TestPoint 1.5mm,OPTIONAL,PA18 BSL test point
+HOLE1-3,3,M3,3.2mm,YES,Mounting (adapter positions)
