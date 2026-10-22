@@ -1,5 +1,5 @@
 Ref,Qty,Value,Footprint,Populate,Notes
-U1,1,MSPM0L2228SPN,LQFP-80 14x14 0.65mm,YES,Target MCU
+U1,1,MSPM0L2228SPN,LQFP-80 (TI PN0080A) 12x12 body, 0.5mm pitch,YES,Target MCU
 C1,1,470nF,0603,YES,VCORE (pin 80) - required, hard against the pin
 C2,1,100nF,0603,YES,VDD/VSS (pin 8/9)
 C5,1,100nF,0603,YES,VBAT (pin 7)
