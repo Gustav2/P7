@@ -1,0 +1,12 @@
+(version 1)
+
+# Single-sided CNC build: all copper and soldering on the front (F.Cu).
+# Through-hole parts sit with their bodies on the back so their pins are soldered on F.Cu.
+
+(rule "Front side only: no copper on B.Cu"
+	(layer "B.Cu")
+	(condition "A.Type == 'Track' || A.Type == 'Zone'")
+	(constraint disallow track zone))
+
+(rule "Front side only: no vias"
+	(constraint disallow via micro_via buried_via))
