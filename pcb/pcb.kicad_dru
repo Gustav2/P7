@@ -1,7 +1,7 @@
 (version 1)
 
-# Single-sided CNC build: all copper and soldering on the front (F.Cu).
-# Through-hole parts sit with their bodies on the back so their pins are soldered on F.Cu.
+# Single-sided CNC build: all copper and soldering on the front (F.Cu). It is a hat, so the
+# parts sit on the front too; only the CW308 sockets plug in from the back.
 
 (rule "Front side only: no copper on B.Cu"
 	(layer "B.Cu")
@@ -10,3 +10,40 @@
 
 (rule "Front side only: no vias"
 	(constraint disallow via micro_via buried_via))
+
+# Milling: 1.0 mm traces, 0.5 mm isolation everywhere ...
+(rule "CNC: 1.0 mm tracks"
+	(condition "A.Type == 'Track' && !A.intersectsArea('MSP_FINE') && !A.intersectsArea('HDR_GAPS')")
+	(constraint track_width (min 1.0mm)))
+
+(rule "CNC: 0.5 mm isolation"
+	(condition "A.Type != 'Zone' && B.Type != 'Zone' && !A.intersectsArea('MSP_FINE') && !B.intersectsArea('MSP_FINE') && !A.intersectsArea('HDR_GAPS') && !B.intersectsArea('HDR_GAPS')")
+	(constraint clearance (min 0.5mm)))
+
+# ... except two areas milled with the 0.2 mm cutter (traces and pads only, never the copper
+# fill, which covers the whole board and would otherwise get these narrow rules everywhere):
+# MSP fan-out (rule area MSP_FINE): 0.5 mm pitch pads are 0.3 mm wide with 0.2 mm gaps, the
+# escape traces match the pads.
+(rule "MSP fan-out: 0.3 mm tracks"
+	(condition "A.Type == 'Track' && A.intersectsArea('MSP_FINE')")
+	(constraint track_width (min 0.3mm)))
+
+(rule "MSP fan-out: 0.2 mm isolation"
+	(condition "A.Type != 'Zone' && B.Type != 'Zone' && (A.intersectsArea('MSP_FINE') || B.intersectsArea('MSP_FINE'))")
+	(constraint clearance (min 0.2mm)))
+
+# Header pin gaps (rule areas HDR_GAPS over the CW308 socket+header rows): a trace may thread
+# between two pins (0.84 mm gap) at 0.35 mm with 0.2 mm isolation.
+(rule "Header pin gaps: 0.35 mm tracks"
+	(condition "A.Type == 'Track' && A.intersectsArea('HDR_GAPS') && !A.intersectsArea('MSP_FINE')")
+	(constraint track_width (min 0.35mm)))
+
+(rule "Header pin gaps: 0.2 mm isolation"
+	(condition "A.Type != 'Zone' && B.Type != 'Zone' && (A.intersectsArea('HDR_GAPS') || B.intersectsArea('HDR_GAPS'))")
+	(constraint clearance (min 0.2mm)))
+
+# The no-net copper fill (leaves unused copper in place for milling) keeps a solid 3 mm of
+# isolation from every trace and pad; where there is no room, no fill is placed.
+(rule "Copper fill: 3 mm isolation"
+	(condition "A.Type == 'Zone' || B.Type == 'Zone'")
+	(constraint clearance (min 3.0mm)))
