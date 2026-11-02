@@ -39,13 +39,10 @@ const Board = scripting.addModule("/ti/driverlib/Board", {}, false);
 SYSCTL.clockTreeEn           = true;
 SYSCTL.forceDefaultClkConfig = true;
 
-UART1.$name              = "UART_0";
-UART1.flowControl        = "RTS_CTS";
-UART1.targetBaudRate     = 115200;
-UART1.txPinConfig.$name  = "ti_driverlib_gpio_GPIOPinGeneric0";
-UART1.rxPinConfig.$name  = "ti_driverlib_gpio_GPIOPinGeneric1";
-UART1.rtsPinConfig.$name = "ti_driverlib_gpio_GPIOPinGeneric2";
-UART1.ctsPinConfig.$name = "ti_driverlib_gpio_GPIOPinGeneric3";
+UART1.$name             = "UART_0";
+UART1.targetBaudRate    = 115200;
+UART1.txPinConfig.$name = "ti_driverlib_gpio_GPIOPinGeneric0";
+UART1.rxPinConfig.$name = "ti_driverlib_gpio_GPIOPinGeneric1";
 
 ProjectConfig.genLinker = false;
 
@@ -60,5 +57,3 @@ Board.peripheral.swdioPin.$suggestSolution = "PA19";
 UART1.peripheral.$suggestSolution          = "UART0";
 UART1.peripheral.rxPin.$suggestSolution    = "PA1";
 UART1.peripheral.txPin.$suggestSolution    = "PA0";
-UART1.peripheral.rtsPin.$suggestSolution   = "PA15";
-UART1.peripheral.ctsPin.$suggestSolution   = "PA14";
