@@ -16,6 +16,7 @@
 const GPIO          = scripting.addModule("/ti/driverlib/GPIO", {}, false);
 const GPIO1         = GPIO.addInstance();
 const SYSCTL        = scripting.addModule("/ti/driverlib/SYSCTL");
+const TRNG          = scripting.addModule("/ti/driverlib/TRNG");
 const UART          = scripting.addModule("/ti/driverlib/UART", {}, false);
 const UART1         = UART.addInstance();
 const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
@@ -39,13 +40,12 @@ const Board = scripting.addModule("/ti/driverlib/Board", {}, false);
 SYSCTL.clockTreeEn           = true;
 SYSCTL.forceDefaultClkConfig = true;
 
-UART1.$name              = "UART_0";
-UART1.flowControl        = "RTS_CTS";
-UART1.targetBaudRate     = 115200;
-UART1.txPinConfig.$name  = "ti_driverlib_gpio_GPIOPinGeneric0";
-UART1.rxPinConfig.$name  = "ti_driverlib_gpio_GPIOPinGeneric1";
-UART1.rtsPinConfig.$name = "ti_driverlib_gpio_GPIOPinGeneric2";
-UART1.ctsPinConfig.$name = "ti_driverlib_gpio_GPIOPinGeneric3";
+UART1.$name                    = "UART_0";
+UART1.targetBaudRate           = 115200;
+UART1.peripheral.rxPin.$assign = "PA11";
+UART1.peripheral.txPin.$assign = "PA10";
+UART1.txPinConfig.$name        = "ti_driverlib_gpio_GPIOPinGeneric0";
+UART1.rxPinConfig.$name        = "ti_driverlib_gpio_GPIOPinGeneric1";
 
 ProjectConfig.genLinker = false;
 
@@ -58,7 +58,3 @@ Board.peripheral.$suggestSolution          = "DEBUGSS";
 Board.peripheral.swclkPin.$suggestSolution = "PA20";
 Board.peripheral.swdioPin.$suggestSolution = "PA19";
 UART1.peripheral.$suggestSolution          = "UART0";
-UART1.peripheral.rxPin.$suggestSolution    = "PA1";
-UART1.peripheral.txPin.$suggestSolution    = "PA0";
-UART1.peripheral.rtsPin.$suggestSolution   = "PA15";
-UART1.peripheral.ctsPin.$suggestSolution   = "PA14";

@@ -1,5 +1,6 @@
 #include "ti_msp_dl_config.h"
 #include <stdint.h>
+#include <stdbool.h>
 
 #define DELAY         (16000000)
 #define APP_ADDRESS   (0x00020000UL)
@@ -7,133 +8,207 @@
 #define SRAM_END      (0x20208000UL)
 #define APP_FLASH_END (0x00040000UL)
 
-uint32_t APP_FOUND = 0;
 volatile uint32_t monitor_ticks = 0;
 
 typedef void (*app_entry_t)(void);
 
+// variables for random state preservation.
+static uint32_t randomState;
+static volatile uint32_t noiseSink = 0;
 
-/*This function will allow the B program to execute,
-by first checking it's instance*/
-static void start_application(void)
+// check if application is in correct memory location
+static int validate_application(void)
 {
-    /* First entry in B's vector table = initial stack pointer */
-    uint32_t app_stack =
-        *((volatile uint32_t *) APP_ADDRESS);
+    uint32_t app_stack = *(volatile uint32_t *)APP_ADDRESS;
+    uint32_t app_reset = *(volatile uint32_t *)(APP_ADDRESS + 4U);
 
-    /* Second entry = address of B's Reset_Handler */
-    uint32_t app_reset =
-        *((volatile uint32_t *) (APP_ADDRESS + 4U));
+    uint32_t reset_address = app_reset & ~1UL;
 
+    int stack_valid =
+        (app_stack > SRAM_START) &&
+        (app_stack <= SRAM_END) &&
+        ((app_stack & 7U) == 0U);
 
-    /* Do not allow an interrupt in the middle of the handoff */
-    __disable_irq();
+    int reset_valid =
+        ((app_reset & 1U) != 0U) &&
+        (reset_address >= APP_ADDRESS) &&
+        (reset_address < APP_FLASH_END);
 
-    /* Give B the stack pointer it was linked/started with */
-    __set_MSP(app_stack);
-
-    /* Jump to B's Reset_Handler */
-    ((app_entry_t) app_reset)();
-
-    /* B should never return here */
-    while (1) {
-        delay_cycles(DELAY);
-    }
+    return stack_valid && reset_valid;
 }
 
-static void validate_application(void)
+
+// start application routine
+__attribute__((naked, noreturn))
+static void start_application(uint32_t app_stack,
+                              uint32_t app_reset)
 {
-
-        /* Read Application B's vector table */
-        uint32_t app_stack =
-            *((volatile uint32_t *) APP_ADDRESS);
-
-        uint32_t app_reset =
-            *((volatile uint32_t *) (APP_ADDRESS + 4U));
-
-        /* Ignore Thumb bit when checking reset-handler address */
-        uint32_t reset_address = app_reset & ~1UL;
-
-        /* Check that B's stack pointer points into SRAM */
-        int SRAM_FOUND =
-            (app_stack > SRAM_START) &&
-            (app_stack <= SRAM_END) &&
-            ((app_stack & 0x7U) == 0U);
-
-        /* Check that B's Reset_Handler points into B's flash */
-        int RESET_HANDLER_FLASH =
-            (reset_address >= APP_ADDRESS) &&
-            (reset_address < APP_FLASH_END);
-
-        /* Application looks valid */
-        if ((SRAM_FOUND == 1) &&
-            (RESET_HANDLER_FLASH == 1)) {
-            APP_FOUND = 1;
-        }
-        
+    __asm volatile(
+        "msr msp, r0 \n"
+        "cpsie i     \n"
+        "bx r1       \n"
+    );
 }
 
+// Fast pseudorandom number generator for testing
+uint32_t fastRandom(void)
+{
+    uint32_t x = randomState;
+
+    x ^= x << 13;
+    x ^= x >> 17;
+    x ^= x << 5;
+
+    randomState = x;
+    return x;
+}
+
+// Monitor interrupt routine
 void SysTick_Handler(void)
 {
-    monitor_ticks++;
+    // 1. Randomize how long the monitor runs
+    uint32_t duration = 20u + (fastRandom() % 100u);
 
-    DL_GPIO_togglePins(GPIO_LEDS_USER_LED_1_PORT,
-                       GPIO_LEDS_USER_LED_1_PIN);
+    // 2. Perform dummy computations
+    uint32_t value = noiseSink;
+
+    for (uint32_t i = 0; i < duration; i++) {
+        value ^= value << 7;
+        value += 0x9E3779B9u + i;
+        value ^= value >> 9;
+    }
+
+    noiseSink = value;
+
+    // 3. Randomize time until next interrupt
+    // Approximately 0.5-1.0 ms at 32 MHz
+    uint32_t interval = 16000u + (fastRandom() % 16001u);
+
+    // 4. Schedule next interrupt
+    SysTick->LOAD = interval - 1u;
+    SysTick->VAL = 0u;
+
+   
+    // DL_UART_Main_transmitDataBlocking(UART_0_INST, 'I');
+    // DL_UART_Main_transmitDataBlocking(UART_0_INST, '\r');
+    // DL_UART_Main_transmitDataBlocking(UART_0_INST, '\n');
 }
 
+
+
+// get random seed
+bool getRandomNumber(uint32_t *random)
+{
+    // Check output pointer
+    if (random == NULL) {
+        return false;
+    }
+
+    // Wait for a random value, with a timeout
+    uint32_t timeout = 1000000u;
+
+    while (!DL_TRNG_isCaptureReady(TRNG)) {
+
+        if (DL_TRNG_isHealthTestFail(TRNG) ||
+            DL_TRNG_isCommandFail(TRNG)) {
+            return false;
+        }
+
+        if (--timeout == 0u) {
+            return false;
+        }
+    }
+
+    // Reject reported TRNG health failures
+    if (DL_TRNG_isHealthTestFail(TRNG)) {
+        return false;
+    }
+
+    // Retrieve the 32-bit random number
+    *random = DL_TRNG_getCapture(TRNG);
+
+    // Clear the capture-ready flag
+    DL_TRNG_clearInterruptStatus(
+        TRNG,
+        DL_TRNG_INTERRUPT_CAPTURE_RDY_EVENT
+    );
+
+    return true;
+}
+
+
+bool initializeRandom(void)
+{
+    uint32_t seed;
+
+    if (!getRandomNumber(&seed)) {
+        return false;
+    }
+
+    // Xorshift requires a nonzero state
+    randomState = (seed != 0u) ? seed : 1u;
+
+    return true;
+}
+
+// Initialize the interrupt handler
+void initializeSysTick(void)
+{
+    DL_SYSTICK_init(3200000u);
+
+    DL_SYSTICK_enableInterrupt();
+
+    DL_SYSTICK_enable();
+}
 
 int main(void)
 {
     SYSCFG_DL_init();
 
+    DL_GPIO_clearPins(GPIO_LEDS_USER_LED_1_PORT,
+                      GPIO_LEDS_USER_LED_1_PIN);
+    // Enable and configure TRNG
+    DL_TRNG_enablePower(TRNG);
 
-    // Example: 0.5 seconds at a 32 MHz SysTick clock
-    SysTick->LOAD = 16000000U - 1U;
-    SysTick->VAL = 0U;
+    uint32_t randomValue;
 
-    // Enable SysTick, its interrupt, and CPU clock source
-    SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk |
-                    SysTick_CTRL_TICKINT_Msk |
-                    SysTick_CTRL_ENABLE_Msk;
+    DL_UART_Main_transmitDataBlocking(UART_0_INST, 'A');
+    DL_UART_Main_transmitDataBlocking(UART_0_INST, '\r');
+    DL_UART_Main_transmitDataBlocking(UART_0_INST, '\n');
 
-    __enable_irq();
+    if (initializeRandom()) {
 
-    while (1)
-    {
-        // CPU executes normally.
-        // SysTick interrupts occur independently.
+        uint32_t app_stack =
+        *(volatile uint32_t *)APP_ADDRESS;
+
+        uint32_t app_reset =
+            *(volatile uint32_t *)(APP_ADDRESS + 4U);
+
+        while (!validate_application())
+        {
+            delay_cycles(DELAY);
+            DL_UART_Main_transmitDataBlocking(UART_0_INST, 'A');
+            DL_UART_Main_transmitDataBlocking(UART_0_INST, '\r');
+            DL_UART_Main_transmitDataBlocking(UART_0_INST, '\n');
+        }
+
+        initializeSysTick();
+        start_application(app_stack, app_reset);
+
+        
+    } else {
+        
+        DL_UART_Main_transmitDataBlocking(UART_0_INST, 'E');
+        DL_UART_Main_transmitDataBlocking(UART_0_INST, '\r');
+        DL_UART_Main_transmitDataBlocking(UART_0_INST, '\n');
     }
 
+    while (1) {
 
-    // /* Make the initial state obvious. */
-    // DL_GPIO_clearPins(GPIO_LEDS_USER_LED_1_PORT,
-    //                   GPIO_LEDS_USER_LED_1_PIN);
+        DL_UART_Main_transmitDataBlocking(UART_0_INST, 'E');
+        DL_UART_Main_transmitDataBlocking(UART_0_INST, '\r');
+        DL_UART_Main_transmitDataBlocking(UART_0_INST, '\n');
+    }
 
-
-    // /* Monitor indicator: LED 1 ON. */
-    // DL_GPIO_setPins(GPIO_LEDS_USER_LED_1_PORT,
-    //                 GPIO_LEDS_USER_LED_1_PIN);
-
-    // /* Approximately 2 seconds: 4 × ~0.5 s. */
-    // delay_cycles(DELAY);
-    // delay_cycles(DELAY);
-    // delay_cycles(DELAY); 
-    // delay_cycles(DELAY);
-
-    // /* Monitor is finished. Turn LED 1 OFF. */
-    // DL_GPIO_clearPins(GPIO_LEDS_USER_LED_1_PORT,
-    //                   GPIO_LEDS_USER_LED_1_PIN);
-    
-    // /* Transfer execution to the application's Reset_Handler. */
-    // validate_application();
-    // if (APP_FOUND == 1){
-    //     start_application();
-    // }
-
-    
-    // /* We should never get here. */
-    // while (1) {
-    //     delay_cycles(DELAY);
-    // }
 
 }
