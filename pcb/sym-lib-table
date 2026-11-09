@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "mspm0")(type "KiCad")(uri "${KIPRJMOD}/mspm0.kicad_sym")(options "")(descr "MSPM0L2228SPMR LQFP-64 (TI PM)"))
+)
