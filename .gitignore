@@ -3,9 +3,6 @@ venv/
 .ipynb_checkpoints/
 Debug/
 
-SecurityMonitor/Monitor/objdir-CW308_SAM4S/
-SecurityMonitor/Customer_Application/objdir-CW308_SAM4S/
-
 # KiCad lock/backup files
 *.lck
 *-backups/
@@ -19,3 +16,10 @@ fp-info-cache
 *.lss
 *.map
 *.sym
+
+# Build directories
+**/objdir-CW308_SAM4S/
+
+# Other generated files
+*.o
+*.d

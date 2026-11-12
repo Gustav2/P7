@@ -330,7 +330,7 @@ int main(void)
     platform_init();
     init_uart();
     init_cycle_counter();
-    benchmark_dummy();
+    //benchmark_dummy();
     //putch('M');
 
     // Number of SysTick counts per millisecond
