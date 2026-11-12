@@ -2,6 +2,8 @@
 #include "hal.h"
 #include "sam4s.h"
 #include <stdint.h>
+#include <stdio.h>
+#include "drbg.h"
 
 #define CUSTOMER_BASE       0x00410000u
 #define CUSTOMER_FLASH_END  0x00420000u
@@ -15,8 +17,8 @@
 // Configuration
 // ==========================================
 
-#define MIN_INTERVAL_MS  30u
-#define MAX_INTERVAL_MS  150u
+#define MIN_INTERVAL_MS  20u
+#define MAX_INTERVAL_MS  50u
 
 #define MIN_DUMMY_WORK   100u
 #define MAX_DUMMY_WORK   500u
@@ -35,6 +37,103 @@ static volatile uint32_t dummy_state = 0x12345678u;
 static uint32_t random_state = 0xA5B4C3D2u;
 
 static uint32_t ticks_per_ms = 0;
+
+//===================================
+// MEASURE DUMMY WORK
+//===================================
+
+
+void init_cycle_counter(void)
+{
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT->CYCCNT = 0;
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+}
+
+
+uint32_t measure_dummy_work(uint32_t *iteration_count)
+{
+    uint32_t start = DWT->CYCCNT;
+
+    uint32_t range =
+        MAX_DUMMY_WORK - MIN_DUMMY_WORK + 1u;
+
+    uint32_t n =
+        MIN_DUMMY_WORK + (random32() % range);
+
+    uint32_t x = dummy_state;
+
+    for (uint32_t i = 0; i < n; i++) {
+
+        uint32_t r = random32();
+
+        switch (r & 3u) {
+        case 0:
+            x ^= (r << 7);
+            break;
+
+        case 1:
+            x = x * 1664525u + r;
+            break;
+
+        case 2:
+            x = (x << 5) | (x >> 27);
+            x ^= r;
+            break;
+
+        default:
+            x += (r ^ i);
+            x ^= x >> 11;
+            break;
+        }
+    }
+
+    dummy_state = x;
+
+    uint32_t cycles = DWT->CYCCNT - start;
+
+    *iteration_count = n;
+    return cycles;
+}
+
+
+#define MEASUREMENTS 10000u
+
+void benchmark_dummy(void)
+{
+    uint64_t total_cycles = 0;
+    uint64_t total_iterations = 0;
+
+    for (uint32_t i = 0; i < MEASUREMENTS; i++) {
+
+        uint32_t n;
+        uint32_t cycles = measure_dummy_work(&n);
+
+        total_cycles += cycles;
+        total_iterations += n;
+    }
+
+    double avg_cycles_per_iteration =
+        (double)total_cycles / total_iterations;
+
+    double avg_time_us =
+        (avg_cycles_per_iteration * 1000000.0)
+        / SystemCoreClock;
+
+    // Print or inspect results after the benchmark
+
+    char buffer[100];
+
+    snprintf(buffer, sizeof(buffer),
+            "Time: %.3f us, Cycles: %.2f\r\n",
+            avg_time_us, avg_cycles_per_iteration);
+
+    for (char *p = buffer; *p; p++) {
+        putch(*p);
+    }
+}
+
+
 
 // ==========================================
 // Xorshift32 PRNG
@@ -221,23 +320,6 @@ static void start_customer(void)
     // Stop Monitor interrupts for this initial test
     __disable_irq();
 
-    // SysTick->CTRL = 0;
-    // SysTick->LOAD = 0;
-    // SysTick->VAL = 0;
-
-    // Clear any pending SysTick interrupt
-    // SCB->ICSR = SCB_ICSR_PENDSTCLR_Msk;
-
-    // // Disable and clear external interrupts
-    // for (uint32_t i = 0; i < 2; i++) {
-    //     NVIC->ICER[i] = 0xFFFFFFFFu;
-    //     NVIC->ICPR[i] = 0xFFFFFFFFu;
-    // }
-
-    // // Make sure Thread mode uses MSP
-    // __set_CONTROL(0);
-    // __ISB();
-
     // Use Customer interrupt vector table
     SCB->VTOR = CUSTOMER_BASE;
     __DSB();
@@ -252,7 +334,8 @@ int main(void)
     platform_init();
     init_uart();
     trigger_setup();
-
+    init_cycle_counter();
+    benchmark_dummy();
     //putch('M');
 
     // Number of SysTick counts per millisecond
@@ -268,14 +351,14 @@ int main(void)
     __enable_irq();
 
      // Observe first five interrupts
-    uint32_t reported = 0;
+    // uint32_t reported = 0;
 
-    while (reported < 5u) {
-        if (interrupt_count > reported) {
-            reported++;
-            //putch('A');
-        }
-    }
+    // while (reported < 5u) {
+    //     if (interrupt_count > reported) {
+    //         reported++;
+    //         //putch('A');
+    //     }
+    // }
 
     // transfer to customer
     start_customer();
