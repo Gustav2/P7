@@ -9,13 +9,14 @@ Debug/
 fp-info-cache
 
 # ChipWhisperer generated files
-*.bin
-*.eep
-*.elf
-*.hex
-*.lss
-*.map
-*.sym
+Customer_Application/*.bin
+Monitor/*.bin
+**/*.eep
+**/*.elf
+**/*.hex
+**/*.lss
+**/*.map
+**/*.sym
 
 # Build directories
 **/objdir-CW308_SAM4S/
