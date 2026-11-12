@@ -225,8 +225,6 @@ static void dummy_computations(void)
 
 void SysTick_Handler(void)
 {
-    // Indicate beginning of Monitor execution
-    trigger_high();
 
     // Choose when the next interrupt occurs
     schedule_next_interrupt();
@@ -243,8 +241,6 @@ void SysTick_Handler(void)
     }
 #endif
 
-   // Indicate end of Monitor execution
-    trigger_low();
 }
 
 // ==========================================
@@ -333,7 +329,6 @@ int main(void)
 {
     platform_init();
     init_uart();
-    trigger_setup();
     init_cycle_counter();
     benchmark_dummy();
     //putch('M');

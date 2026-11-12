@@ -10,3 +10,12 @@ SecurityMonitor/Customer_Application/objdir-CW308_SAM4S/
 *.lck
 *-backups/
 fp-info-cache
+
+# ChipWhisperer generated files
+*.bin
+*.eep
+*.elf
+*.hex
+*.lss
+*.map
+*.sym
