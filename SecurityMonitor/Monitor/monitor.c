@@ -3,7 +3,6 @@
 #include "sam4s.h"
 #include <stdint.h>
 #include <stdio.h>
-#include "drbg.h"
 
 #define CUSTOMER_BASE       0x00410000u
 #define CUSTOMER_FLASH_END  0x00420000u
@@ -50,6 +49,17 @@ void init_cycle_counter(void)
     DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 }
 
+static uint32_t random32(void)
+{
+    uint32_t x = random_state;
+
+    x ^= x << 13;
+    x ^= x >> 17;
+    x ^= x << 5;
+
+    random_state = x;
+    return x;
+}
 
 uint32_t measure_dummy_work(uint32_t *iteration_count)
 {
@@ -139,17 +149,7 @@ void benchmark_dummy(void)
 // Xorshift32 PRNG
 // ==========================================
 
-static uint32_t random32(void)
-{
-    uint32_t x = random_state;
 
-    x ^= x << 13;
-    x ^= x >> 17;
-    x ^= x << 5;
-
-    random_state = x;
-    return x;
-}
 
 // ==========================================
 // Configure next interrupt interval

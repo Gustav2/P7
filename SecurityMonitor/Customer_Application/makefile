@@ -33,7 +33,7 @@ TARGET = customer
 SRC += customer.c
 
 SS_VER = SS_VER_2_1
-CRYPTO_TARGET = NONE
+CRYPTO_TARGET = TINYAES128C
 
 FIRMWAREPATH ?= /mnt/c/Users/bjark/ChipWhisperer/chipwhisperer/firmware/mcu
 
