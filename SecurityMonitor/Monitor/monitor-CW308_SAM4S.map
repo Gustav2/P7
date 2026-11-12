@@ -453,6 +453,8 @@ Discarded input sections
  .text          0x00000000        0x0 objdir-CW308_SAM4S/sam4s_hal.o
  .data          0x00000000        0x0 objdir-CW308_SAM4S/sam4s_hal.o
  .bss           0x00000000        0x0 objdir-CW308_SAM4S/sam4s_hal.o
+ .text.init_uart
+                0x00000000       0x60 objdir-CW308_SAM4S/sam4s_hal.o
  .text.putch    0x00000000       0x1c objdir-CW308_SAM4S/sam4s_hal.o
  .text.getch    0x00000000       0x20 objdir-CW308_SAM4S/sam4s_hal.o
  .text.trigger_setup
@@ -646,9 +648,15 @@ Discarded input sections
  .text          0x00000000        0x0 objdir-CW308_SAM4S/uart.o
  .data          0x00000000        0x0 objdir-CW308_SAM4S/uart.o
  .bss           0x00000000        0x0 objdir-CW308_SAM4S/uart.o
+ .text.uart_init
+                0x00000000       0x34 objdir-CW308_SAM4S/uart.o
+ .text.uart_enable_tx
+                0x00000000        0x6 objdir-CW308_SAM4S/uart.o
  .text.uart_disable_tx
                 0x00000000        0x6 objdir-CW308_SAM4S/uart.o
  .text.uart_reset_tx
+                0x00000000        0x6 objdir-CW308_SAM4S/uart.o
+ .text.uart_enable_rx
                 0x00000000        0x6 objdir-CW308_SAM4S/uart.o
  .text.uart_disable_rx
                 0x00000000        0x6 objdir-CW308_SAM4S/uart.o
@@ -696,6 +704,13 @@ Discarded input sections
                 0x00000000        0x1 objdir-CW308_SAM4S/uart.o
  .bss.cpu_irq_critical_section_counter
                 0x00000000        0x4 objdir-CW308_SAM4S/uart.o
+ .debug_info    0x00000000      0x89b objdir-CW308_SAM4S/uart.o
+ .debug_abbrev  0x00000000      0x21f objdir-CW308_SAM4S/uart.o
+ .debug_loc     0x00000000      0x294 objdir-CW308_SAM4S/uart.o
+ .debug_aranges
+                0x00000000       0xe8 objdir-CW308_SAM4S/uart.o
+ .debug_ranges  0x00000000       0xd8 objdir-CW308_SAM4S/uart.o
+ .debug_macro   0x00000000      0x445 objdir-CW308_SAM4S/uart.o
  .debug_macro   0x00000000      0xb1a objdir-CW308_SAM4S/uart.o
  .debug_macro   0x00000000      0x189 objdir-CW308_SAM4S/uart.o
  .debug_macro   0x00000000      0x6d7 objdir-CW308_SAM4S/uart.o
@@ -791,6 +806,13 @@ Discarded input sections
  .debug_macro   0x00000000       0x73 objdir-CW308_SAM4S/uart.o
  .debug_macro   0x00000000       0x3e objdir-CW308_SAM4S/uart.o
  .debug_macro   0x00000000      0x3ca objdir-CW308_SAM4S/uart.o
+ .debug_macro   0x00000000       0x16 objdir-CW308_SAM4S/uart.o
+ .debug_line    0x00000000      0xbdc objdir-CW308_SAM4S/uart.o
+ .debug_str     0x00000000    0x47cff objdir-CW308_SAM4S/uart.o
+ .comment       0x00000000       0x27 objdir-CW308_SAM4S/uart.o
+ .debug_frame   0x00000000      0x1b8 objdir-CW308_SAM4S/uart.o
+ .ARM.attributes
+                0x00000000       0x2e objdir-CW308_SAM4S/uart.o
  .group         0x00000000        0xc objdir-CW308_SAM4S/pio.o
  .group         0x00000000        0xc objdir-CW308_SAM4S/pio.o
  .group         0x00000000        0xc objdir-CW308_SAM4S/pio.o
@@ -2433,7 +2455,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
                 0x00001000                        __stack_size__ = DEFINED (__stack_size__)?__stack_size__:0x1000
                 0x20007ffc                        __ram_end__ = ((ORIGIN (ram) + LENGTH (ram)) - 0x4)
 
-.text           0x00400000      0x8cc
+.text           0x00400000      0x824
                 0x00400000                        . = ALIGN (0x4)
                 0x00400000                        _sfixed = .
  *(.vectors .vectors.*)
@@ -2453,180 +2475,168 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
                 0x004001a8       0x90 objdir-CW308_SAM4S/monitor.o
                 0x004001a8                SysTick_Handler
  .text.startup.main
-                0x00400238       0xa0 objdir-CW308_SAM4S/monitor.o
+                0x00400238       0x98 objdir-CW308_SAM4S/monitor.o
                 0x00400238                main
  .text.Dummy_Handler
-                0x004002d8        0x2 objdir-CW308_SAM4S/startup_sam4s.o
-                0x004002d8                DACC_Handler
-                0x004002d8                DebugMon_Handler
-                0x004002d8                HardFault_Handler
-                0x004002d8                TC2_Handler
-                0x004002d8                SPI_Handler
-                0x004002d8                TWI1_Handler
-                0x004002d8                PendSV_Handler
-                0x004002d8                NMI_Handler
-                0x004002d8                ADC_Handler
-                0x004002d8                CRCCU_Handler
-                0x004002d8                USART0_Handler
-                0x004002d8                RTT_Handler
-                0x004002d8                PIOB_Handler
-                0x004002d8                RTC_Handler
-                0x004002d8                UsageFault_Handler
-                0x004002d8                WDT_Handler
-                0x004002d8                TC1_Handler
-                0x004002d8                HSMCI_Handler
-                0x004002d8                UART1_Handler
-                0x004002d8                Dummy_Handler
-                0x004002d8                TWI0_Handler
-                0x004002d8                USART1_Handler
-                0x004002d8                PIOA_Handler
-                0x004002d8                SSC_Handler
-                0x004002d8                EFC0_Handler
-                0x004002d8                ACC_Handler
-                0x004002d8                PMC_Handler
-                0x004002d8                PWM_Handler
-                0x004002d8                MemManage_Handler
-                0x004002d8                SUPC_Handler
-                0x004002d8                SVC_Handler
-                0x004002d8                UART0_Handler
-                0x004002d8                UDP_Handler
-                0x004002d8                BusFault_Handler
-                0x004002d8                RSTC_Handler
-                0x004002d8                TC0_Handler
- *fill*         0x004002da        0x2 
+                0x004002d0        0x2 objdir-CW308_SAM4S/startup_sam4s.o
+                0x004002d0                DACC_Handler
+                0x004002d0                DebugMon_Handler
+                0x004002d0                HardFault_Handler
+                0x004002d0                TC2_Handler
+                0x004002d0                SPI_Handler
+                0x004002d0                TWI1_Handler
+                0x004002d0                PendSV_Handler
+                0x004002d0                NMI_Handler
+                0x004002d0                ADC_Handler
+                0x004002d0                CRCCU_Handler
+                0x004002d0                USART0_Handler
+                0x004002d0                RTT_Handler
+                0x004002d0                PIOB_Handler
+                0x004002d0                RTC_Handler
+                0x004002d0                UsageFault_Handler
+                0x004002d0                WDT_Handler
+                0x004002d0                TC1_Handler
+                0x004002d0                HSMCI_Handler
+                0x004002d0                UART1_Handler
+                0x004002d0                Dummy_Handler
+                0x004002d0                TWI0_Handler
+                0x004002d0                USART1_Handler
+                0x004002d0                PIOA_Handler
+                0x004002d0                SSC_Handler
+                0x004002d0                EFC0_Handler
+                0x004002d0                ACC_Handler
+                0x004002d0                PMC_Handler
+                0x004002d0                PWM_Handler
+                0x004002d0                MemManage_Handler
+                0x004002d0                SUPC_Handler
+                0x004002d0                SVC_Handler
+                0x004002d0                UART0_Handler
+                0x004002d0                UDP_Handler
+                0x004002d0                BusFault_Handler
+                0x004002d0                RSTC_Handler
+                0x004002d0                TC0_Handler
+ *fill*         0x004002d2        0x2 
  .text.Reset_Handler
-                0x004002dc       0x7c objdir-CW308_SAM4S/startup_sam4s.o
-                0x004002dc                Reset_Handler
+                0x004002d4       0x7c objdir-CW308_SAM4S/startup_sam4s.o
+                0x004002d4                Reset_Handler
  .text.platform_init
-                0x00400358       0x98 objdir-CW308_SAM4S/sam4s_hal.o
-                0x00400358                platform_init
- .text.init_uart
-                0x004003f0       0x60 objdir-CW308_SAM4S/sam4s_hal.o
-                0x004003f0                init_uart
- .text.uart_init
-                0x00400450       0x34 objdir-CW308_SAM4S/uart.o
-                0x00400450                uart_init
- .text.uart_enable_tx
-                0x00400484        0x6 objdir-CW308_SAM4S/uart.o
-                0x00400484                uart_enable_tx
- .text.uart_enable_rx
-                0x0040048a        0x6 objdir-CW308_SAM4S/uart.o
-                0x0040048a                uart_enable_rx
+                0x00400350       0x98 objdir-CW308_SAM4S/sam4s_hal.o
+                0x00400350                platform_init
  .text.pio_set_peripheral
-                0x00400490       0x6e objdir-CW308_SAM4S/pio.o
-                0x00400490                pio_set_peripheral
+                0x004003e8       0x6e objdir-CW308_SAM4S/pio.o
+                0x004003e8                pio_set_peripheral
  .text.pio_set_input
-                0x004004fe       0x2e objdir-CW308_SAM4S/pio.o
-                0x004004fe                pio_set_input
+                0x00400456       0x2e objdir-CW308_SAM4S/pio.o
+                0x00400456                pio_set_input
  .text.pio_set_output
-                0x0040052c       0x24 objdir-CW308_SAM4S/pio.o
-                0x0040052c                pio_set_output
+                0x00400484       0x24 objdir-CW308_SAM4S/pio.o
+                0x00400484                pio_set_output
  .text.pio_configure_pin
-                0x00400550       0xa4 objdir-CW308_SAM4S/pio.o
-                0x00400550                pio_configure_pin
+                0x004004a8       0xa4 objdir-CW308_SAM4S/pio.o
+                0x004004a8                pio_configure_pin
  .text.SystemCoreClockUpdate
-                0x004005f4       0xcc objdir-CW308_SAM4S/system_sam4s.o
-                0x004005f4                SystemCoreClockUpdate
+                0x0040054c       0xcc objdir-CW308_SAM4S/system_sam4s.o
+                0x0040054c                SystemCoreClockUpdate
  .text.system_init_flash
-                0x004006c0       0x64 objdir-CW308_SAM4S/system_sam4s.o
-                0x004006c0                system_init_flash
+                0x00400618       0x64 objdir-CW308_SAM4S/system_sam4s.o
+                0x00400618                system_init_flash
  .text.pmc_switch_mck_to_sclk
-                0x00400724       0x40 objdir-CW308_SAM4S/pmc.o
-                0x00400724                pmc_switch_mck_to_sclk
+                0x0040067c       0x40 objdir-CW308_SAM4S/pmc.o
+                0x0040067c                pmc_switch_mck_to_sclk
  .text.pmc_switch_mck_to_mainck
-                0x00400764       0x44 objdir-CW308_SAM4S/pmc.o
-                0x00400764                pmc_switch_mck_to_mainck
+                0x004006bc       0x44 objdir-CW308_SAM4S/pmc.o
+                0x004006bc                pmc_switch_mck_to_mainck
  .text.pmc_switch_mainck_to_xtal
-                0x004007a8       0x4c objdir-CW308_SAM4S/pmc.o
-                0x004007a8                pmc_switch_mainck_to_xtal
+                0x00400700       0x4c objdir-CW308_SAM4S/pmc.o
+                0x00400700                pmc_switch_mainck_to_xtal
  .text.pmc_osc_is_ready_mainck
-                0x004007f4       0x10 objdir-CW308_SAM4S/pmc.o
-                0x004007f4                pmc_osc_is_ready_mainck
+                0x0040074c       0x10 objdir-CW308_SAM4S/pmc.o
+                0x0040074c                pmc_osc_is_ready_mainck
  .text.pmc_enable_periph_clk
-                0x00400804       0x3c objdir-CW308_SAM4S/pmc.o
-                0x00400804                pmc_enable_periph_clk
+                0x0040075c       0x3c objdir-CW308_SAM4S/pmc.o
+                0x0040075c                pmc_enable_periph_clk
  .text.pmc_set_writeprotect
-                0x00400840       0x1c objdir-CW308_SAM4S/pmc.o
-                0x00400840                pmc_set_writeprotect
- .text          0x0040085c       0x50 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
-                0x0040085c                __libc_init_array
+                0x00400798       0x1c objdir-CW308_SAM4S/pmc.o
+                0x00400798                pmc_set_writeprotect
+ .text          0x004007b4       0x50 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+                0x004007b4                __libc_init_array
  *(.glue_7t)
- .glue_7t       0x004008ac        0x0 linker stubs
+ .glue_7t       0x00400804        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x004008ac        0x0 linker stubs
+ .glue_7        0x00400804        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x004008ac                        . = ALIGN (0x4)
+                0x00400804                        . = ALIGN (0x4)
  *(.init)
- .init          0x004008ac        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
-                0x004008ac                _init
- .init          0x004008b0        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
-                0x004008b8                        . = ALIGN (0x4)
-                0x004008b8                        __preinit_array_start = .
+ .init          0x00400804        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
+                0x00400804                _init
+ .init          0x00400808        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+                0x00400810                        . = ALIGN (0x4)
+                0x00400810                        __preinit_array_start = .
  *(.preinit_array)
-                0x004008b8                        __preinit_array_end = .
-                0x004008b8                        . = ALIGN (0x4)
-                0x004008b8                        __init_array_start = .
+                0x00400810                        __preinit_array_end = .
+                0x00400810                        . = ALIGN (0x4)
+                0x00400810                        __init_array_start = .
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
- .init_array    0x004008b8        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
-                0x004008bc                        __init_array_end = .
-                0x004008bc                        . = ALIGN (0x4)
+ .init_array    0x00400810        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x00400814                        __init_array_end = .
+                0x00400814                        . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *crtend.o(.ctors)
-                0x004008bc                        . = ALIGN (0x4)
+                0x00400814                        . = ALIGN (0x4)
  *(.fini)
- .fini          0x004008bc        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
-                0x004008bc                _fini
- .fini          0x004008c0        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
-                0x004008c8                        . = ALIGN (0x4)
-                0x004008c8                        __fini_array_start = .
+ .fini          0x00400814        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
+                0x00400814                _fini
+ .fini          0x00400818        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+                0x00400820                        . = ALIGN (0x4)
+                0x00400820                        __fini_array_start = .
  *(.fini_array)
- .fini_array    0x004008c8        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+ .fini_array    0x00400820        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  *(SORT_BY_NAME(.fini_array.*))
-                0x004008cc                        __fini_array_end = .
+                0x00400824                        __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *crtend.o(.dtors)
-                0x004008cc                        . = ALIGN (0x4)
-                0x004008cc                        _efixed = .
+                0x00400824                        . = ALIGN (0x4)
+                0x00400824                        _efixed = .
                 [!provide]                        PROVIDE (__exidx_start = .)
 
-.vfp11_veneer   0x004008cc        0x0
- .vfp11_veneer  0x004008cc        0x0 linker stubs
+.vfp11_veneer   0x00400824        0x0
+ .vfp11_veneer  0x00400824        0x0 linker stubs
 
-.v4_bx          0x004008cc        0x0
- .v4_bx         0x004008cc        0x0 linker stubs
+.v4_bx          0x00400824        0x0
+ .v4_bx         0x00400824        0x0 linker stubs
 
-.iplt           0x004008cc        0x0
- .iplt          0x004008cc        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.iplt           0x00400824        0x0
+ .iplt          0x00400824        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.eh_frame       0x004008cc        0x0
- .eh_frame      0x004008cc        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.eh_frame       0x00400824        0x0
+ .eh_frame      0x00400824        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.rel.dyn        0x004008cc        0x0
- .rel.iplt      0x004008cc        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.rel.dyn        0x00400824        0x0
+ .rel.iplt      0x00400824        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
 .tm_clone_table
-                0x004008cc        0x0
+                0x00400824        0x0
  .tm_clone_table
-                0x004008cc        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x00400824        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  .tm_clone_table
-                0x004008cc        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
+                0x00400824        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
 
-.igot.plt       0x004008cc        0x0
- .igot.plt      0x004008cc        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.igot.plt       0x00400824        0x0
+ .igot.plt      0x00400824        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
                 [!provide]                        PROVIDE (__exidx_end = .)
-                0x004008cc                        . = ALIGN (0x4)
-                0x004008cc                        _etext = .
+                0x00400824                        . = ALIGN (0x4)
+                0x00400824                        _etext = .
 
-.relocate       0x20000000        0xc load address 0x004008cc
+.relocate       0x20000000        0xc load address 0x00400824
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -2641,7 +2651,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
                 0x2000000c                        . = ALIGN (0x4)
                 0x2000000c                        _erelocate = .
 
-.bss            0x2000000c       0x24 load address 0x004008d8
+.bss            0x2000000c       0x24 load address 0x00400830
                 0x2000000c                        . = ALIGN (0x4)
                 0x2000000c                        _sbss = .
                 0x2000000c                        _szero = .
@@ -2656,7 +2666,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
                 0x20000030                        _ebss = .
                 0x20000030                        _ezero = .
 
-.stack          0x20000030     0x1000 load address 0x004008fc
+.stack          0x20000030     0x1000 load address 0x00400854
                 0x20000030                        . = ALIGN (0x8)
                 0x20000030                        _sstack = .
                 0x20001030                        . = (. + __stack_size__)
@@ -2685,19 +2695,17 @@ LOAD linker stubs
  .ARM.attributes
                 0x000000a8       0x2e objdir-CW308_SAM4S/sam4s_hal.o
  .ARM.attributes
-                0x000000d6       0x2e objdir-CW308_SAM4S/uart.o
+                0x000000d6       0x2e objdir-CW308_SAM4S/pio.o
  .ARM.attributes
-                0x00000104       0x2e objdir-CW308_SAM4S/pio.o
+                0x00000104       0x2e objdir-CW308_SAM4S/system_sam4s.o
  .ARM.attributes
-                0x00000132       0x2e objdir-CW308_SAM4S/system_sam4s.o
+                0x00000132       0x2e objdir-CW308_SAM4S/pmc.o
  .ARM.attributes
-                0x00000160       0x2e objdir-CW308_SAM4S/pmc.o
+                0x00000160       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
  .ARM.attributes
-                0x0000018e       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+                0x0000018e       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
  .ARM.attributes
-                0x000001bc       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
- .ARM.attributes
-                0x000001ea       0x1e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+                0x000001bc       0x1e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
 
 .comment        0x00000000       0x26
  .comment       0x00000000       0x26 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
@@ -2707,8 +2715,6 @@ LOAD linker stubs
  .comment       0x00000026        0x0 objdir-CW308_SAM4S/startup_sam4s.o
                                  0x27 (size before relaxing)
  .comment       0x00000026        0x0 objdir-CW308_SAM4S/sam4s_hal.o
-                                 0x27 (size before relaxing)
- .comment       0x00000026        0x0 objdir-CW308_SAM4S/uart.o
                                  0x27 (size before relaxing)
  .comment       0x00000026        0x0 objdir-CW308_SAM4S/pio.o
                                  0x27 (size before relaxing)
@@ -2721,36 +2727,33 @@ LOAD linker stubs
  .comment       0x00000026        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
                                  0x27 (size before relaxing)
 
-.debug_info     0x00000000     0x588f
- .debug_info    0x00000000      0xe5c objdir-CW308_SAM4S/monitor.o
- .debug_info    0x00000e5c      0x6e4 objdir-CW308_SAM4S/startup_sam4s.o
- .debug_info    0x00001540      0xa0d objdir-CW308_SAM4S/sam4s_hal.o
- .debug_info    0x00001f4d      0x89b objdir-CW308_SAM4S/uart.o
- .debug_info    0x000027e8     0x18f4 objdir-CW308_SAM4S/pio.o
- .debug_info    0x000040dc      0x457 objdir-CW308_SAM4S/system_sam4s.o
- .debug_info    0x00004533     0x1251 objdir-CW308_SAM4S/pmc.o
- .debug_info    0x00005784      0x10b /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+.debug_info     0x00000000     0x4fc1
+ .debug_info    0x00000000      0xe29 objdir-CW308_SAM4S/monitor.o
+ .debug_info    0x00000e29      0x6e4 objdir-CW308_SAM4S/startup_sam4s.o
+ .debug_info    0x0000150d      0xa0d objdir-CW308_SAM4S/sam4s_hal.o
+ .debug_info    0x00001f1a     0x18f4 objdir-CW308_SAM4S/pio.o
+ .debug_info    0x0000380e      0x457 objdir-CW308_SAM4S/system_sam4s.o
+ .debug_info    0x00003c65     0x1251 objdir-CW308_SAM4S/pmc.o
+ .debug_info    0x00004eb6      0x10b /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_abbrev   0x00000000     0x12ff
- .debug_abbrev  0x00000000      0x44c objdir-CW308_SAM4S/monitor.o
- .debug_abbrev  0x0000044c      0x1b4 objdir-CW308_SAM4S/startup_sam4s.o
- .debug_abbrev  0x00000600      0x2c1 objdir-CW308_SAM4S/sam4s_hal.o
- .debug_abbrev  0x000008c1      0x21f objdir-CW308_SAM4S/uart.o
- .debug_abbrev  0x00000ae0      0x371 objdir-CW308_SAM4S/pio.o
- .debug_abbrev  0x00000e51      0x11f objdir-CW308_SAM4S/system_sam4s.o
- .debug_abbrev  0x00000f70      0x2c6 objdir-CW308_SAM4S/pmc.o
- .debug_abbrev  0x00001236       0xc9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+.debug_abbrev   0x00000000     0x10cb
+ .debug_abbrev  0x00000000      0x437 objdir-CW308_SAM4S/monitor.o
+ .debug_abbrev  0x00000437      0x1b4 objdir-CW308_SAM4S/startup_sam4s.o
+ .debug_abbrev  0x000005eb      0x2c1 objdir-CW308_SAM4S/sam4s_hal.o
+ .debug_abbrev  0x000008ac      0x371 objdir-CW308_SAM4S/pio.o
+ .debug_abbrev  0x00000c1d      0x11f objdir-CW308_SAM4S/system_sam4s.o
+ .debug_abbrev  0x00000d3c      0x2c6 objdir-CW308_SAM4S/pmc.o
+ .debug_abbrev  0x00001002       0xc9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_loc      0x00000000     0x2735
+.debug_loc      0x00000000     0x24a1
  .debug_loc     0x00000000      0x54f objdir-CW308_SAM4S/monitor.o
  .debug_loc     0x0000054f       0xfb objdir-CW308_SAM4S/startup_sam4s.o
  .debug_loc     0x0000064a      0x226 objdir-CW308_SAM4S/sam4s_hal.o
- .debug_loc     0x00000870      0x294 objdir-CW308_SAM4S/uart.o
- .debug_loc     0x00000b04      0xf76 objdir-CW308_SAM4S/pio.o
- .debug_loc     0x00001a7a       0x20 objdir-CW308_SAM4S/system_sam4s.o
- .debug_loc     0x00001a9a      0xc9b objdir-CW308_SAM4S/pmc.o
+ .debug_loc     0x00000870      0xf76 objdir-CW308_SAM4S/pio.o
+ .debug_loc     0x000017e6       0x20 objdir-CW308_SAM4S/system_sam4s.o
+ .debug_loc     0x00001806      0xc9b objdir-CW308_SAM4S/pmc.o
 
-.debug_aranges  0x00000000      0x5b0
+.debug_aranges  0x00000000      0x4c8
  .debug_aranges
                 0x00000000       0x50 objdir-CW308_SAM4S/monitor.o
  .debug_aranges
@@ -2758,26 +2761,23 @@ LOAD linker stubs
  .debug_aranges
                 0x00000078       0x50 objdir-CW308_SAM4S/sam4s_hal.o
  .debug_aranges
-                0x000000c8       0xe8 objdir-CW308_SAM4S/uart.o
+                0x000000c8      0x1a8 objdir-CW308_SAM4S/pio.o
  .debug_aranges
-                0x000001b0      0x1a8 objdir-CW308_SAM4S/pio.o
+                0x00000270       0x30 objdir-CW308_SAM4S/system_sam4s.o
  .debug_aranges
-                0x00000358       0x30 objdir-CW308_SAM4S/system_sam4s.o
+                0x000002a0      0x208 objdir-CW308_SAM4S/pmc.o
  .debug_aranges
-                0x00000388      0x208 objdir-CW308_SAM4S/pmc.o
- .debug_aranges
-                0x00000590       0x20 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+                0x000004a8       0x20 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_ranges   0x00000000      0x800
- .debug_ranges  0x00000000      0x1e0 objdir-CW308_SAM4S/monitor.o
- .debug_ranges  0x000001e0       0x18 objdir-CW308_SAM4S/startup_sam4s.o
- .debug_ranges  0x000001f8       0xa8 objdir-CW308_SAM4S/sam4s_hal.o
- .debug_ranges  0x000002a0       0xd8 objdir-CW308_SAM4S/uart.o
- .debug_ranges  0x00000378      0x228 objdir-CW308_SAM4S/pio.o
- .debug_ranges  0x000005a0       0x20 objdir-CW308_SAM4S/system_sam4s.o
- .debug_ranges  0x000005c0      0x240 objdir-CW308_SAM4S/pmc.o
+.debug_ranges   0x00000000      0x720
+ .debug_ranges  0x00000000      0x1d8 objdir-CW308_SAM4S/monitor.o
+ .debug_ranges  0x000001d8       0x18 objdir-CW308_SAM4S/startup_sam4s.o
+ .debug_ranges  0x000001f0       0xa8 objdir-CW308_SAM4S/sam4s_hal.o
+ .debug_ranges  0x00000298      0x228 objdir-CW308_SAM4S/pio.o
+ .debug_ranges  0x000004c0       0x20 objdir-CW308_SAM4S/system_sam4s.o
+ .debug_ranges  0x000004e0      0x240 objdir-CW308_SAM4S/pmc.o
 
-.debug_macro    0x00000000     0xfa34
+.debug_macro    0x00000000     0xf5d9
  .debug_macro   0x00000000      0x3cb objdir-CW308_SAM4S/monitor.o
  .debug_macro   0x000003cb      0xb1a objdir-CW308_SAM4S/monitor.o
  .debug_macro   0x00000ee5      0x34e objdir-CW308_SAM4S/monitor.o
@@ -2890,51 +2890,45 @@ LOAD linker stubs
  .debug_macro   0x0000e8bf       0x1c objdir-CW308_SAM4S/sam4s_hal.o
  .debug_macro   0x0000e8db       0xa4 objdir-CW308_SAM4S/sam4s_hal.o
  .debug_macro   0x0000e97f       0x46 objdir-CW308_SAM4S/sam4s_hal.o
- .debug_macro   0x0000e9c5      0x445 objdir-CW308_SAM4S/uart.o
- .debug_macro   0x0000ee0a       0x16 objdir-CW308_SAM4S/uart.o
- .debug_macro   0x0000ee20      0x44b objdir-CW308_SAM4S/pio.o
- .debug_macro   0x0000f26b       0x8e objdir-CW308_SAM4S/pio.o
- .debug_macro   0x0000f2f9      0x29e objdir-CW308_SAM4S/system_sam4s.o
- .debug_macro   0x0000f597      0x44b objdir-CW308_SAM4S/pmc.o
- .debug_macro   0x0000f9e2       0x52 objdir-CW308_SAM4S/pmc.o
+ .debug_macro   0x0000e9c5      0x44b objdir-CW308_SAM4S/pio.o
+ .debug_macro   0x0000ee10       0x8e objdir-CW308_SAM4S/pio.o
+ .debug_macro   0x0000ee9e      0x29e objdir-CW308_SAM4S/system_sam4s.o
+ .debug_macro   0x0000f13c      0x44b objdir-CW308_SAM4S/pmc.o
+ .debug_macro   0x0000f587       0x52 objdir-CW308_SAM4S/pmc.o
 
-.debug_line     0x00000000     0x6008
- .debug_line    0x00000000      0xca2 objdir-CW308_SAM4S/monitor.o
- .debug_line    0x00000ca2      0x750 objdir-CW308_SAM4S/startup_sam4s.o
- .debug_line    0x000013f2      0xc45 objdir-CW308_SAM4S/sam4s_hal.o
- .debug_line    0x00002037      0xbdc objdir-CW308_SAM4S/uart.o
- .debug_line    0x00002c13     0x12c2 objdir-CW308_SAM4S/pio.o
- .debug_line    0x00003ed5      0x812 objdir-CW308_SAM4S/system_sam4s.o
- .debug_line    0x000046e7     0x1803 objdir-CW308_SAM4S/pmc.o
- .debug_line    0x00005eea      0x11e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+.debug_line     0x00000000     0x5419
+ .debug_line    0x00000000      0xc8f objdir-CW308_SAM4S/monitor.o
+ .debug_line    0x00000c8f      0x750 objdir-CW308_SAM4S/startup_sam4s.o
+ .debug_line    0x000013df      0xc45 objdir-CW308_SAM4S/sam4s_hal.o
+ .debug_line    0x00002024     0x12c2 objdir-CW308_SAM4S/pio.o
+ .debug_line    0x000032e6      0x812 objdir-CW308_SAM4S/system_sam4s.o
+ .debug_line    0x00003af8     0x1803 objdir-CW308_SAM4S/pmc.o
+ .debug_line    0x000052fb      0x11e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_str      0x00000000    0x4b349
- .debug_str     0x00000000    0x4b349 objdir-CW308_SAM4S/monitor.o
-                              0x3c05f (size before relaxing)
- .debug_str     0x0004b349        0x0 objdir-CW308_SAM4S/startup_sam4s.o
+.debug_str      0x00000000    0x4b155
+ .debug_str     0x00000000    0x4b155 objdir-CW308_SAM4S/monitor.o
+                              0x3c055 (size before relaxing)
+ .debug_str     0x0004b155        0x0 objdir-CW308_SAM4S/startup_sam4s.o
                               0x383df (size before relaxing)
- .debug_str     0x0004b349        0x0 objdir-CW308_SAM4S/sam4s_hal.o
+ .debug_str     0x0004b155        0x0 objdir-CW308_SAM4S/sam4s_hal.o
                               0x49567 (size before relaxing)
- .debug_str     0x0004b349        0x0 objdir-CW308_SAM4S/uart.o
-                              0x47cff (size before relaxing)
- .debug_str     0x0004b349        0x0 objdir-CW308_SAM4S/pio.o
+ .debug_str     0x0004b155        0x0 objdir-CW308_SAM4S/pio.o
                               0x48576 (size before relaxing)
- .debug_str     0x0004b349        0x0 objdir-CW308_SAM4S/system_sam4s.o
+ .debug_str     0x0004b155        0x0 objdir-CW308_SAM4S/system_sam4s.o
                               0x381ac (size before relaxing)
- .debug_str     0x0004b349        0x0 objdir-CW308_SAM4S/pmc.o
+ .debug_str     0x0004b155        0x0 objdir-CW308_SAM4S/pmc.o
                               0x483ca (size before relaxing)
- .debug_str     0x0004b349        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+ .debug_str     0x0004b155        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
                                 0x1f4 (size before relaxing)
 
-.debug_frame    0x00000000      0xbb0
+.debug_frame    0x00000000      0x9f8
  .debug_frame   0x00000000       0xc8 objdir-CW308_SAM4S/monitor.o
  .debug_frame   0x000000c8       0x38 objdir-CW308_SAM4S/startup_sam4s.o
  .debug_frame   0x00000100       0xdc objdir-CW308_SAM4S/sam4s_hal.o
- .debug_frame   0x000001dc      0x1b8 objdir-CW308_SAM4S/uart.o
- .debug_frame   0x00000394      0x370 objdir-CW308_SAM4S/pio.o
- .debug_frame   0x00000704       0x48 objdir-CW308_SAM4S/system_sam4s.o
- .debug_frame   0x0000074c      0x438 objdir-CW308_SAM4S/pmc.o
- .debug_frame   0x00000b84       0x2c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+ .debug_frame   0x000001dc      0x370 objdir-CW308_SAM4S/pio.o
+ .debug_frame   0x0000054c       0x48 objdir-CW308_SAM4S/system_sam4s.o
+ .debug_frame   0x00000594      0x438 objdir-CW308_SAM4S/pmc.o
+ .debug_frame   0x000009cc       0x2c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
 .debug_loclists
                 0x00000000       0x65
@@ -3174,7 +3168,6 @@ hardware_init_hook                                /usr/lib/gcc/arm-none-eabi/14.
 hex_decode                                        objdir-CW308_SAM4S/simpleserial.o
 init_cycle_counter                                objdir-CW308_SAM4S/monitor.o
 init_uart                                         objdir-CW308_SAM4S/sam4s_hal.o
-                                                  objdir-CW308_SAM4S/monitor.o
 led_error                                         objdir-CW308_SAM4S/hal.o
 led_ok                                            objdir-CW308_SAM4S/hal.o
 main                                              objdir-CW308_SAM4S/monitor.o

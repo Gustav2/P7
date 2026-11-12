@@ -23,7 +23,7 @@
 #define MAX_DUMMY_WORK   500u
 
 // Set to 0 when measuring power traces
-#define DEBUG_UART       1
+#define DEBUG_UART       0
 
 // ==========================================
 // Monitor state
@@ -328,7 +328,6 @@ static void start_customer(void)
 int main(void)
 {
     platform_init();
-    init_uart();
     init_cycle_counter();
     //benchmark_dummy();
     //putch('M');
