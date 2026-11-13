@@ -1,5 +1,4 @@
 
-#include "hal.h"
 #include "sam4s.h"
 #include <stdint.h>
 #include <stdio.h>
